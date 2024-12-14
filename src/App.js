@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import UsersList from './components/UsersList';
-import SortItem from './components/SortItem';
+import UserSearch from './components/UserSearch';
 import UsersRegistration from './components/UsersRegistration';
+import SortItem from './components/SortItem';
 import userData from './data/Data';
 import './App.css';
 
@@ -20,15 +21,6 @@ function App() {
     }
   }, [])
 
-  //Sort Users By Name
-  const sortedUsersByName = () => {
-    const sortedUsers = [...users].sort((a, b) =>
-      sortType ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
-    );
-    setUsers(sortedUsers);
-    setSortType(!sortType);
-  };
-
   //Filtered Users
   const filteredUsers = users.filter(
     (user) =>
@@ -39,7 +31,7 @@ function App() {
   return (
     <div className="employe_container">
       <UsersRegistration setUsers={setUsers} />
-      <SortItem
+      <UserSearch
         searchEmploye={searchEmploye}
         setSearchEmploye={setSearchEmploye}
         searchDepartment={searchDepartment}
@@ -47,10 +39,12 @@ function App() {
       />
       <UsersList
         users={users}
-        sortedUsersByName={sortedUsersByName}
         filteredUsers={filteredUsers}
         sortType={sortType}
+        setSortType={setSortType}
+        setUsers={setUsers}
       />
+  
     </div>
   );
 }

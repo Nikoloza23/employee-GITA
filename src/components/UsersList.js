@@ -1,13 +1,18 @@
+import SortItem from "./SortItem";
+
 //Users
-const UsersList = ({ sortedUsersByName, filteredUsers, sortType }) => {
+const UsersList = ({  filteredUsers, sortType, setSortType, users, setUsers }) => {
   return (
     <table border="">
       <thead>
         <tr>
           <th>
-            <button className="sort-button" onClick={sortedUsersByName}>
-              Name {sortType ? "˄" : "˅"}
-            </button>
+            <SortItem
+              sortType={sortType}
+              setSortType={setSortType}
+              users={users}
+              setUsers={setUsers}
+            />
           </th>
           <th>Department</th>
           <th>Role</th>

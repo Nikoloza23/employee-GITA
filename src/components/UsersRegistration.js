@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 //User Registration using Hook-Form
-const UserRegistration = ({setUsers}) => {
+const UserRegistration = ({ setUsers }) => {
   const [formData, setFormData] = useState({
     name: '',
     department: '',
@@ -44,11 +44,11 @@ const UserRegistration = ({setUsers}) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      Name <input type="text" name="name" value={formData.name} onChange={handleChange} />
+      Name: <input type="text" name="name" value={formData.name} onChange={handleChange} />
       {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
-      Department <input type="text" name="department" value={formData.department} onChange={handleChange} />
+      Department: <input type="text" name="department" value={formData.department} onChange={handleChange} />
       {errors.department && <p style={{ color: 'red' }}>{errors.department}</p>}
-      Role <input type="text" name="role" value={formData.role} onChange={handleChange} />
+      Role: <input type="text" name="role" value={formData.role} onChange={handleChange} />
       <button type="submit">Submit</button>
       <hr />
     </form>
