@@ -14,11 +14,12 @@ function App() {
 
   //Take Data From LocalStorage
   useEffect(() => {
-    const savedUsers = localStorage.getItem('formData')
+    const savedUsers = JSON.parse(localStorage.getItem("users"));
     if (savedUsers) {
-      setUsers([JSON.parse(savedUsers)])
+      setUsers([...userData, ...savedUsers]); // Combine initial data and localStorage data
     }
-  }, [])
+  }, []);
+
 
   //Filtered Users
   const filteredUsers = users.filter(

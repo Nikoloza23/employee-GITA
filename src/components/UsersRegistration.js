@@ -15,6 +15,8 @@ const UserRegistration = ({ setUsers }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+
+  
   const validate = () => {
     const newErrors = {};
     let isValid = true;
@@ -36,9 +38,16 @@ const UserRegistration = ({ setUsers }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      localStorage.setItem('userFormData', JSON.stringify(formData));
-      setUsers((prevUsers) => [...prevUsers, formData]);
-      console.log(formData)
+      const newUser = formData;
+      const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
+      const updatedUsers = [newUser, ...savedUsers]; 
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      setUsers((prev) => [newUser, ...prev]);
+      setFormData({
+        name: "",
+        department: "",
+        role: "",
+      });
     }
   };
 
