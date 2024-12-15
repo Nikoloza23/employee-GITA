@@ -44,11 +44,11 @@ const UserRegistration = ({ setUsers }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      Name: <input type="text" name="name" value={formData.name} onChange={handleChange} />
+      Name: <input className="registrer-input" type="text" name="name" value={formData.name} onChange={handleChange} />
       {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
-      Department: <input type="text" name="department" value={formData.department} onChange={handleChange} />
+      Department: <input className="registrer-input" type="text" name="department" value={formData.department} onChange={handleChange} />
       {errors.department && <p style={{ color: 'red' }}>{errors.department}</p>}
-      Role: <input type="text" name="role" value={formData.role} onChange={handleChange} />
+      Role: <input className="registrer-input" type="text" name="role" value={formData.role} onChange={handleChange} />
       <button type="submit">Submit</button>
       <hr />
     </form>

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import UsersList from './components/UsersList';
 import UserSearch from './components/UserSearch';
 import UsersRegistration from './components/UsersRegistration';
-import SortItem from './components/SortItem';
 import userData from './data/Data';
 import './App.css';
 
@@ -44,7 +43,7 @@ function App() {
         setSortType={setSortType}
         setUsers={setUsers}
       />
-  
+
     </div>
   );
 }
