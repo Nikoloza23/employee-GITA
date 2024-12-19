@@ -16,7 +16,7 @@ const UserRegistration = ({ setUsers }) => {
   };
 
 
-  
+
   const validate = () => {
     const newErrors = {};
     let isValid = true;
@@ -40,7 +40,7 @@ const UserRegistration = ({ setUsers }) => {
     if (validate()) {
       const newUser = formData;
       const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
-      const updatedUsers = [newUser, ...savedUsers]; 
+      const updatedUsers = [newUser, ...savedUsers];
       localStorage.setItem("users", JSON.stringify(updatedUsers));
       setUsers((prev) => [newUser, ...prev]);
       setFormData({
@@ -50,6 +50,8 @@ const UserRegistration = ({ setUsers }) => {
       });
     }
   };
+
+
 
   return (
     <form onSubmit={handleSubmit}>
